@@ -42,6 +42,25 @@ cd try-meteor
 meteor
 ```
 
+## ARMv6l
+
+Tested with a Raspberry pi Zero
+
+Build the bundle (~1h):
+```bash
+./scripts/generate-dev-bundle.sh
+```
+
+Install and update meteor (~few hours):
+```bash
+meteor create testproject
+```
+
+Start your project (you may need to start mongodb from dev_bundle manually first):
+```bash
+MONGO_URL="mongodb://localhost:27017/meteor" meteor
+```
+
 ## Developer Resources
 
 Building an application with Meteor?

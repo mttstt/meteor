@@ -14,9 +14,9 @@ NPM_VERSION=5.5.1
 NODE_BUILD_NUMBER=
 
 if [ "$UNAME" == "Linux" ] ; then
-    if [ "$ARCH" != "i686" -a "$ARCH" != "x86_64" ] ; then
+    if [ "$ARCH" != "i686" -a "$ARCH" != "x86_64" -a "$ARCH" != "armv6l" ] ; then
         echo "Unsupported architecture: $ARCH"
-        echo "Meteor only supports i686 and x86_64 for now."
+        echo "Meteor only supports i686, x86_64 and armv6l for now."
         exit 1
     fi
 
@@ -63,6 +63,9 @@ then
     elif [ "$ARCH" == "x86_64" ]
     then
         NODE_TGZ="node-v${NODE_VERSION}-linux-x64.tar.gz"
+    elif [ "$ARCH" == "armv6l" ]
+    then
+        NODE_TGZ="node-v${NODE_VERSION}-linux-armv6l.tar.gz"
     else
         echo "Unknown architecture: $UNAME $ARCH"
         exit 1

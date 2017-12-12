@@ -133,6 +133,7 @@ export const VALID_ARCHITECTURES = {
   "os.osx.x86_64": true,
   "os.linux.x86_64": true,
   "os.linux.x86_32": true,
+  "os.linux.armv6l": true,
   "os.windows.x86_64": true,
   "os.windows.x86_32": true,
 };
@@ -171,6 +172,8 @@ var host = function () {
         _host = "os.linux.x86_32";
       } else if (_.contains(["x86_64", "amd64", "ia64"], machine)) {
         _host = "os.linux.x86_64";
+      } else if (_.contains(["armv6l"], machine)) {
+        _host = "os.linux.armv6l";
       } else {
         throw new Error("Unsupported architecture: " + machine);
       }
